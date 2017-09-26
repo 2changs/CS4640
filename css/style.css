@@ -1,32 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-    background-color: lightblue; 
+    background-color: #F6F6F6 !important; 
+    margin: 0 auto;
 	font-family: 'Open Sans', sans-serif;
 }
 
-a:selected {
-	color: blue;
+.logo {
+	width: 50%;
+	margin-top:-10px;
 }
 
-.nav-bar {
-	position: relative;
+.navbar {
+	margin-bottom: 0 !important;
 }
 
-.nav-bar input{
-	text-align: center;
+.navbar-default {
+	background: #F6F6F6 !important;
+	border-radius: 0 !important;
 }
 
-.tabs {
-	float: right;
+.nav-hr {
+	background-color: #DE1B1B;
+	height: 3px; 
+    margin: 30px -20px 20px;
+	width: 110%;
+	margin-bottom: 5px !important;
+	border-top: 3px solid #F6F6F6;
 }
 
 .featured-recipes {
-	margin: auto;
-	width: 50%;
+	padding: 50px;
+	background-color: #2B2B2B;
 }
 
-.featured-recipes img {
-	width: 300px;
+#featuredRecipes {
+	width: 50%;
+ 	margin: 0 auto;
+}
+
+.carousel {
+  width:50%;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
 }
 
 .pr-img {
@@ -37,6 +55,45 @@ h1 {
     text-align: center;
 }
 
-span {
-	color: blue;
+.search {
+  width: 100%;
+  position: relative
 }
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #F6F6F6;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
