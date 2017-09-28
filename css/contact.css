@@ -1,0 +1,56 @@
+.about {
+	overflow: auto;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 80%;
+}
+
+.person {
+	padding: 35;
+	overflow: auto;
+	background-color: #CAEBF2;
+	height: 350px;
+	border-width: 20px;
+	border-color: #EFEFEF;
+	border-style: solid;
+}
+
+.person-img {
+	border-radius: 50%;
+	width: 150px;
+}
+
+.person-img-container {
+	text-align: center;
+}
+
+.person-desc {
+	text-align: center;
+}
+
+.person-name {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+#diana {
+	float: left;
+	width: 50%;
+}
+
+#amanda {
+	width: 50%;
+	float: right;
+}
+
+.form {
+	overflow: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 80%;
+	background-color: rgba(255, 59, 63, 0.8);
+	padding: 30;
+	border-width: 20px;
+	border-color: #EFEFEF;
+	border-style: solid;
+}

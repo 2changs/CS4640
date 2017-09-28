@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<title>Appetize</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/contact.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
@@ -27,22 +28,47 @@
 			</div>
 		</nav>
 
-		<form name="form-contact">
-	    <div class="form-group">
-	    	Name: <input class="form-control" type = "text" id = "contact-name" placeholder="Name" />
-	    </div>
-			<div class="form-group">
-	    	Email: <input class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
+
+		<div class="about">
+			<div id="diana" class="person">
+				<div class="person-img-container">
+					<img class="person-img" src="./images/diana.png" alt="" />
+					<p class="person-name"> Diana Chang </p>
+				</div>
+				<div class="person-desc">
+					Hi, I'm Diana! I'm a 3rd year BSCS student and I love Web PL!!!!! 
+				</div>
 			</div>
-			<div class="form-group">
-	    	Phone: <input class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
+			<div id="amanda" class="person">
+				<div class="person-img-container">
+					<img class="person-img" src="./images/amanda.jpg" alt="" />
+					<p class="person-name">Amanda Nguyen</p>
+				</div>
+				<div class="person-desc"> 
+					Hi everyone! My name is Amanda Nguyen and I'm a student at the University of Virginia majoring in Computer Science. In my free time I like to play volleyball with my friends and eat my way around Charlottesville!
+				</div>
 			</div>
-			<div class="form-group">
-				Message: <textarea class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
-			</div>
-			<div class="form-group">
+		</div>
+
+		<div class="form">
+			<form name="form-contact">
+		    	<label for="contact-name"> Name: </label>
+				<input class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+
+				<label for="email"> Email: </label>
+		    	<input name="email" class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
+
+
+				<label for="phone"> Phone: </label>
+		    	<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
+
+
+				<label for="message"> Message: </label>
+				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
+
+				<br/>
 				<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick=""/>
-			</div>
-  	</form>
+	  		</form>
+	  	</div>
 	</body>
 </html>

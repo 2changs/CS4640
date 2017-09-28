@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
-/*    background-color: #000000!important; */
+    background-color: #EFEFEF!important; 
     background-image: "./images/background.jpg";
     margin: 0 auto;
 	font-family: 'Raleway', sans-serif !important;
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%), url('../images/bg2.jpg');
 	background-repeat: no-repeat;
     background-size: 100% 48%;
 }
@@ -19,7 +18,7 @@ body {
 }
 
 .navbar-default {
-	background-color: rgba(255, 255, 255, 0) !important;
+	background-color: rgba(255,255,255,0) !important;
 	border-radius: 0 !important;
 	border-color: transparent !important;
 	font: black;
@@ -34,7 +33,7 @@ body {
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: white !important;
+	color: black !important;
 	z-index: 100 !important;
 	font-weight: bold;
 	font-size: 16px;

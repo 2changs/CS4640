@@ -8,18 +8,23 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.html"><img class="logo" src="./images/logo.png"/ alt="logo"></a>
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+		      <a class="navbar-brand" href="index.html"><img class="logo" src="./images/logo1.png"/ alt="logo"></a>
 		    </div>
-		    <ul class="nav navbar-nav navbar-right">
-		      <li><a href="recipes.html">Recipes</a><li>
-		      <li><a href="submitRecipe.html">Submit</a></li>
-		      <li><a href="contact.html">Contact Us</a></li>
-		      <li><a href="signin.html">Sign In</a></li>
-		    </ul>
-		    <hr class="nav-hr"/>
-		  </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav navbar-right">
+			      <li><a href="recipes.html">Recipes</a></li>
+			      <li><a href="submitRecipe.html">Submit</a></li>
+			      <li><a href="contact.html">Contact Us</a></li>
+			      <li><a href="signin.html">Sign In</a></li>
+			    </ul>
+			</div>
 		</nav>
 
 		<form action="web-component" method="post">
