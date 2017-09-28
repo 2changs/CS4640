@@ -24,3 +24,8 @@
 .recipe-title:visited {
 	text-decoration: none
 }
+
+.recipe-desc {
+	visibility: hidden;
+}
+

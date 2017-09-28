@@ -22,3 +22,13 @@ function validate() {
 function goBack() {
     window.history.back();
 }
+
+function addIngredient() {
+    var text = document.getElementById("ingredient").value;
+    if(text != "" | text != null) { 
+        var node = document.createElement("LI"); 
+        var textnode = document.createTextNode(text);
+        node.appendChild(textnode);
+        document.getElementById("ingredient-list").appendChild(node);
+    }
+}
