@@ -1,0 +1,26 @@
+.recipes {
+	padding: 50px;
+	background-color: rgba(255, 255, 255, 0);
+	text-align: center;
+}
+
+.tile {
+	height: 300px !important;
+	width: 300px !important;
+	box-shadow: 600px 300px rgba(0, 0, 0, 0.4) inset;
+	color: white;
+	padding: 50;
+	margin: 20;
+}
+
+.tile:hover {
+	box-shadow: 600px 300px rgba(0, 0, 0, 0.6) inset;
+}
+
+.recipe-tile:hover {
+	text-decoration: none;
+}
+
+.recipe-title:visited {
+	text-decoration: none
+}

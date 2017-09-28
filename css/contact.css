@@ -13,6 +13,7 @@
 	border-width: 20px;
 	border-color: #EFEFEF;
 	border-style: solid;
+	overflow-y: hidden;
 }
 
 .person-img {
@@ -53,4 +54,8 @@
 	border-width: 20px;
 	border-color: #EFEFEF;
 	border-style: solid;
+}
+
+.error {
+	color: white;
 }

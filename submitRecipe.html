@@ -27,8 +27,30 @@
 			</div>
 		</nav>
 
-		<form action="web-component" method="post">
-			<input type="text" placeholder="Recipe Name"/>
-		</form>
+		<div class="submit">
+			<h1> Submit a recipe! </h1>
+			<form name="form-contact">
+		    	<label for="contact-name"> Name: </label>
+				<input name="name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+				<span class="error" id="error-name"> </span> </br>
+
+				<label for="email"> Email: </label>
+		    	<input name="email" class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
+				<span class="error" id="error-email"> </span> </br>
+
+				<label for="phone"> Phone: </label>
+		    	<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
+				<span class="error" id="error-phone"> </span> </br>
+
+				<label for="message"> Message: </label>
+				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
+				<span class="error" id="error-message"> </span> 
+				<br/>
+				<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick="validate()"/>
+	  		</form>
+	  	</div>
+		<footer>
+			CS4753 | Diana Chang | Amanda Nguyen
+		</footer>	
 	</body>
 </html>
