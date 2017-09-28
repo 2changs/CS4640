@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
-    background-color: #F6F6F6 !important; 
+/*    background-color: #000000!important; */
+    background-image: "./images/background.jpg";
     margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Raleway', sans-serif !important;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%), url('../images/bg2.jpg');
+	background-repeat: no-repeat;
+    background-size: 100% 48%;
 }
 
 .logo {
-	width: 50%;
-	margin-top:-10px;
+	width: 100px;
 }
 
 .navbar {
@@ -16,22 +19,29 @@ body {
 }
 
 .navbar-default {
-	background: #F6F6F6 !important;
+	background-color: rgba(255, 255, 255, 0) !important;
 	border-radius: 0 !important;
+	font: black;
 }
 
 .nav-hr {
-	background-color: #DE1B1B;
+	background-color: rgba(255, 255, 255, 0);
 	height: 3px; 
     margin: 30px -20px 20px;
 	width: 110%;
 	margin-bottom: 5px !important;
-	border-top: 3px solid #F6F6F6;
 }
+
+.navbar-default .navbar-nav>li>a {
+	color: white !important;
+	z-index: 100 !important;
+	font-weight: bold;
+}
+
 
 .featured-recipes {
 	padding: 50px;
-	background-color: #2B2B2B;
+	background-color: rgba(255, 255, 255, 0);
 }
 
 #featuredRecipes {
@@ -47,6 +57,13 @@ body {
     margin: 0 auto;
 }
 
+.featured-img {
+    position: relative;
+    width: 600px;
+    height: 300px;
+	box-shadow: 600px 300px rgba(0, 0, 0, 0.5) inset;
+}
+
 .pr-img {
 	width: 300px;
 }
@@ -55,45 +72,5 @@ h1 {
     text-align: center;
 }
 
-.search {
-  width: 100%;
-  position: relative
-}
 
-.searchTerm {
-  float: left;
-  width: 100%;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px;
-  outline: none;
-  color: #F6F6F6;
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-.searchButton {
-  position: absolute;  
-  right: -50px;
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
