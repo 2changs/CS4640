@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<title>Appetize</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/submit.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
@@ -27,25 +28,43 @@
 			</div>
 		</nav>
 
-		<div class="submit">
+		<div class="submit-recipe">
 			<h1> Submit a recipe! </h1>
-			<form name="form-contact">
-		    	<label for="contact-name"> Name: </label>
-				<input name="name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+			<form name="form-recipe">
+		    	<label for="recipe-form-name"> Name: </label>
+				<input name="recipe-form-name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
 				<span class="error" id="error-name"> </span> </br>
 
-				<label for="email"> Email: </label>
-		    	<input name="email" class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
-				<span class="error" id="error-email"> </span> </br>
+		    	<label for="recipe-form-hours"> Hours: </label>
+				<input name="recipe-form-hours" class="form-control recipe-time" type="number" name="quantity" min="0" max="12"  />
+				<label for="recipe-form-minutes"> Minutes: </label>
+				<span class="error" id="error-name"> </span> </br>
+				<input name="recipe-form-minutes" class="form-control recipe-time" type="number" name="quantity" min="0" max="60"  />
+				<span class="error" id="error-name"> </span> </br>
 
-				<label for="phone"> Phone: </label>
-		    	<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
-				<span class="error" id="error-phone"> </span> </br>
+		    	<label for="recipe-form-duration"> Cost: </label>
+				<input name="recipe-form-duration" class="form-control" type="number" name="quantity" min="0" max="100" />
+				<span class="error" id="error-name"> </span> </br>
 
-				<label for="message"> Message: </label>
+		    	<label for="recipe-form-difficulty"> Difficulty: </label>
+				<input name="recipe-form-difficulty" class="form-control" type="number" name="quantity" min="" max="5" />
+				<span class="error" id="error-name"> </span> </br>
+
+
+				<label for="message"> Ingredients: </label>
 				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
 				<span class="error" id="error-message"> </span> 
 				<br/>
+
+				<label for="message"> Directions: </label>
+				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
+				<span class="error" id="error-message"> </span> 
+				<br/>
+
+				<label for="message"> Image: </label>
+				<input type="file" class="form-control" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
+				<span class="error" id="error-message"> </span> 
+
 				<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick="validate()"/>
 	  		</form>
 	  	</div>

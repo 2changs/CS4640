@@ -1,0 +1,11 @@
+.submit-recipe {
+	overflow: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 80%;
+	background-color: #A9A9A9;
+	padding: 30;
+	border-width: 20px;
+	border-color: #EFEFEF;
+	border-style: solid;
+}
