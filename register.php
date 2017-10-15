@@ -23,7 +23,7 @@
 			      <li><a href="recipes.html">Recipes</a></li>
 			      <li><a href="submitRecipe.html">Submit</a></li>
 			      <li><a href="contact.html">Contact Us</a></li>
-			      <li><a href="signin.html">Sign In</a></li>
+			      <li><a href="signin.php">Sign In</a></li>
 			    </ul>
 			</div>
 		</nav>
