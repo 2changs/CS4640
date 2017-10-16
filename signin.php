@@ -28,9 +28,42 @@
 			</div>
 		</nav>
 
-		<div class="signin">
-			<h1> Oops, this page is still under construction! </h1>
+		<div class="register">
+			<form method="post" action="">
+				<div class="user_name">
+					<label for="user_name">User Name</label>
+					<input type="text" name="user_name" id="user_name" required />
+				</div>
+				<div class="password">
+					<label for="password"> Password </label>
+					<input type="password" name="password" id="password" required />
+				</div>
+				<div class="submit">
+					<input name="action" type="hidden" value="sign_in">
+					<input type="submit" value="Sign In"/>
+				</div>
+			</form>
 		</div>
+
+
+		<?php
+			include('db.php');
+			if(isset($_POST['action']) && $_POST['action'] == 'sign_in') {
+				$user_name = mysqli_real_escape_string($connection, $_POST['user_name']);
+				$password = mysqli_real_escape_string($connection, $_POST['password']);
+				$query = mysqli_query($connection, "select first_name from users where user_name = '".$user_name."'and password ='".md5($password)."'");
+				$results = mysqli_fetch_array($query);
+				if(count($results) >= 1) {
+					$message = $results['first_name']." Login successfull.";
+				} else {
+					$message = "Invalid user.";
+				}
+				echo("<p class='form_message'>".$message."</p>");
+			}
+
+		?>
+
+
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
 		</footer>	
