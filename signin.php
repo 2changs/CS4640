@@ -22,8 +22,8 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="recipes.html">Recipes</a></li>
-			      <li><a href="submitRecipe.html">Submit</a></li>
+			      <li><a href="recipes.php">Recipes</a></li>
+			      <li><a href="submitRecipe.php">Submit</a></li>
 			      <li><a href="contact.html">Contact Us</a></li>
 			      <li><a href="signin.php">Sign In</a></li>
 			    </ul>
@@ -59,6 +59,8 @@
 				$results = mysqli_fetch_array($query);
 				if(count($results) >= 1) {
 					$message = $results['first_name']." Login successfull.";
+					session_start();
+					$_SESSION['user'] = $user_name;  
 				} else {
 					$message = "Invalid user.";
 				}

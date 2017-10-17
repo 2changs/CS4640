@@ -22,7 +22,7 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav navbar-right">
 			      <li><a href="recipes.html">Recipes</a></li>
-			      <li><a href="submitRecipe.html">Submit</a></li>
+			      <li><a href="submitRecipe.php">Submit</a></li>
 			      <li><a href="contact.html">Contact Us</a></li>
 			      <li><a href="signin.php">Sign In</a></li>
 			    </ul>
@@ -56,19 +56,31 @@
 
 
 		<?php
+			//Password validation function
+			function validate_password($pword) {
+				if(strlen($pword) < 5) {
+					return "The password must be more than 5 characters.";
+				}
+				if(preg_match('/\\d/', $pword) < 0) {
+					return "The password must contain a number.";
+				}
+			}
+
 			include('db.php');
 			if(isset($_POST['action']) && $_POST['action'] == 'register') {
 				$user_name = mysqli_real_escape_string($connection, $_POST['user_name']);
 				$query = "select user_name from users where user_name='".$user_name."'";
 				$result = mysqli_query($connection, $query);
 				$num_results = mysqli_num_rows($result);
+				$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 				if($num_results >= 1) {
 					$message = "This username is already taken! Please choose another username.";
 
 					echo("<p class='form_message'>".$message."</p>");
+				} else if(strlen(validate_password($password)) > 0){
+					echo("<p class='form_message'>".validate_password($password)."</p>");
 				} else {
-					$password = mysqli_real_escape_string($connection, $_POST['password']);
 					$first_name = mysqli_real_escape_string($connection, $_POST['first_name']);
 					$last_name = mysqli_real_escape_string($connection, $_POST['last_name']);
 
@@ -80,6 +92,7 @@
 					echo("<p class='form_message'>".$message."</p>");
 				}
 			}
+
 
 		?>
 

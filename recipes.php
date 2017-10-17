@@ -3,12 +3,11 @@
 		<meta charset="UTF-8">
 		<title>Appetize</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<link rel="stylesheet" type="text/css" href="./css/recipe.css">
+		<link rel="stylesheet" type="text/css" href="./css/recipes.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="./js/index.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -31,40 +30,43 @@
 			</div>
 		</nav>
 
-		<div class="search-bar-container">
+		<div class="recipes">
 			<!-- search box -->
 			<input type="text" class="search-bar" src="./images/icon-search.svg" placeholder="Search for recipes" />
-		</div>
-		<button class="back" onclick="goBack()"> Back </button>
 
-		<div class="recipe">
-			<section class="recipe-left">
-				<h1>Soy Glazed Salmon</h1>
-				<div class="recipe-img">
-					<img src="https://www.onceuponachef.com/images/2011/10/Thai-Chili-Glazed-Salmon-1-1024x699-1-1024x699.jpg" />
+			<div class="row">
+				<div class="col-md-12">
+					<h1><strong>Recipes</strong></h1>
 				</div>
-			</section>
-			<section class="recipe-right">
-				<h3 class="recipe-info"> Time: 15 min | ~$10 </h3>
-				<section class="recipe-ingredients">
-					<h3> Ingredients </h3>
-					<ul>
-						<li> 2 tablespoons honey </li>
-						<li> 2 tablespoons soy sauce </li>
-						<li> 1 1/2 tablespoons fresh lime juice </li>
-						<li> 2 teaspoons vegetable oil </li>
-						<li> two 6-ounce pieces salmon fillet </li>
-					</ul>
-				</section>
+			</div>
 
-				<section class="recipe-instr">
-					<h3> Preparation </h3>
-					<p>
-						In a small bowl whisk together honey, soy sauce, lime juice, mustard, and water. In a small non-stick skillet heat oil over moderately high heat until hot but not smoking and cook salmon 2 to 3 minutes on each side, or until golden and just cooked through. Transfer salmon to 2 plates. Add honey glaze to skillet and simmer, stirring, 1 minute. Pour glaze over salmon.
-					</p>
-				</section>
-			</section>
-		</div>
+
+			<?php
+				include('db.php');
+				$query = "SELECT * FROM recipes";
+				$result = mysqli_query($connection, $query);
+
+				if ($result->num_rows > 0) {
+				    while($row = $result->fetch_assoc()) {
+
+				        $cell = '<div class="col-sm-4">';
+						$cell.= '<a class="recipe-tile" href="recipe.html">
+							<div class="tile" style="background:url(';
+						$cell.=	"'".$row["recipe_image"]."'";
+						$cell.= ') no-repeat center">
+					    		<h3 class="title">'.$row["recipe_name"] ."</h3>
+					    		<p>Time: ".$row["recipe_minutes"]." min | Cost: ~$".$row["recipe_cost"]."
+					    			Enter short description here!
+					    		</p>
+							</div>
+						</a> </div>";
+						echo($cell);
+				    }
+				} else {
+				    echo "0 results";
+				}
+			?>
+
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
 		</footer>

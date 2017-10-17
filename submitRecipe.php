@@ -23,34 +23,36 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="recipes.html">Recipes</a></li>
-			      <li><a href="submitRecipe.html">Submit</a></li>
+			      <li><a href="recipes.php">Recipes</a></li>
+			      <li><a href="submitRecipe.php">Submit</a></li>
 			      <li><a href="contact.html">Contact Us</a></li>
-			      <li><a href="signin.html">Sign In</a></li>
+			      <li><a href="signin.php">Sign In</a></li>
 			    </ul>
 			</div>
 		</nav>
 
 		<div class="submit-recipe">
 			<h1> Submit a recipe! </h1>
-			<form name="form-recipe">
-		    	<label for="recipe-form-name"> Name: </label>
-				<input name="recipe-form-name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+			<form name="form-recipe" method="get">
+		    	<label for="recipe-name"> Recipe Name: </label>
+				<input name="recipe-name" class="form-control" type = "text" id="recipe-name"/>
 				<span class="error" id="error-name"> </span> </br>
 
 		    	<label for="recipe-form-hours"> Hours: </label>
-				<input name="recipe-form-hours" class="form-control recipe-time" type="number" name="quantity" min="0" max="12"  />
+				<input name="recipe-form-hours" class="form-control recipe-time" type="number" name="quantity" min="0" max="12"  id="recipe-form-hours"/>
+
 				<label for="recipe-form-minutes"> Minutes: </label>
 				<span class="error" id="error-name"> </span> </br>
-				<input name="recipe-form-minutes" class="form-control recipe-time" type="number" name="quantity" min="0" max="60"  />
+
+				<input name="recipe-form-minutes" class="form-control recipe-time" type="number" name="quantity" min="0" max="60"  id="recipe-form-minutes"/>
 				<span class="error" id="error-name"> </span> </br>
 
-		    	<label for="recipe-form-duration"> Cost: </label>
-				<input name="recipe-form-duration" class="form-control" type="number" name="quantity" min="0" max="100" />
+		    	<label for="recipe-form-cost"> Cost: </label>
+				<input name="recipe-form-cost" class="form-control" type="number" name="quantity" min="0" max="100" id="recipe-form-cost"/>
 				<span class="error" id="error-name"> </span> </br>
 
 		    	<label for="recipe-form-difficulty"> Difficulty: </label>
-				<input name="recipe-form-difficulty" class="form-control" type="number" name="quantity" min="" max="5" />
+				<input name="recipe-form-difficulty" class="form-control" type="number" name="quantity" min="1" max="5" id="recipe-form-difficulty" />
 				<span class="error" id="error-name"> </span> </br>
 
 
@@ -71,12 +73,34 @@
 				<span class="error" id="error-message"> </span> 
 				<br/>
 
-				<label for="message"> Image: </label>
-				<input type="file" class="form-control" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
+				<label for="recipe-image"> Image: </label>
+				<input name="recipe-image" class="form-control" type = "text" id="recipe-image"/>
 				<span class="error" id="error-message"> </span> 
 
-				<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick="validate()"/>
+				<input name="action" type="hidden" value="submitRecipe">
+				<input type="submit" value="Submit" class="btn btn-submit" onclick="validate()"/>
 	  		</form>
+
+
+	  		<?php
+	  			include('db.php');
+	  			if(isset($_GET['action']) && $_GET['action'] == 'submitRecipe') {
+	  				$recipe_name = mysqli_real_escape_string($connection, $_GET['recipe-name']);
+	  				$recipe_form_hours = mysqli_real_escape_string($connection, $_GET['recipe-form-hours']);
+	  				$recipe_form_minutes = mysqli_real_escape_string($connection, $_GET['recipe-form-minutes']);
+	  				$recipe_form_cost = mysqli_real_escape_string($connection, $_GET['recipe-form-cost']);
+	  				$recipe_form_difficulty = mysqli_real_escape_string($connection, $_GET['recipe-form-difficulty']);
+	  				$recipe_image = mysqli_real_escape_string($connection, $_GET['recipe-image']);
+
+	  				echo($recipe_form_difficulty);
+	  				$query = "insert into recipes(recipe_name, recipe_hours, recipe_minutes, recipe_cost, recipe_difficulty, recipe_image) values ('".$recipe_name."',".$recipe_form_hours.",".$recipe_form_minutes.",".$recipe_form_cost.",".$recipe_form_difficulty.",'".$recipe_image."')";
+	  				mysqli_query($connection, $query);
+	  			}
+
+	  		?>
+
+
+
 	  	</div>
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
