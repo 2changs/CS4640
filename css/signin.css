@@ -1,0 +1,11 @@
+.form {
+	overflow: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 30%;
+	background-color: #CAEBF2;
+	padding:30;
+	border-width: 20px;
+	border-color: #EFEFEF;
+	border-style: solid;
+}

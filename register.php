@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<title>Appetize</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/register.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -31,24 +32,24 @@
 		<div class="register">
 			<form method="post" action="">
 				<div class="user_name">
-					<label for="user_name">User Name</label>
-					<input type="text" name="user_name" id="user_name" required />
-				</div>
+					<label for="user_name">User Name: </label>
+					<input type="text" name="user_name" class="form-control" id="user_name" required />
+				</div><br/>
 				<div class="password">
-					<label for="password"> Password </label>
-					<input type="password" name="password" id="password" required />
-				</div>
+					<label for="password"> Password: </label>
+					<input type="password" name="password" class="form-control" id="password" required />
+				</div><br/>
 				<div class="first_name">
-					<label for="first_name"> First Name </label>
-					<input type="text" name="first_name" id="first_name" />
-				</div>
+					<label for="first_name"> First Name: </label>
+					<input type="text" name="first_name" class="form-control" id="first_name" />
+				</div><br/>
 				<div class="last_name">
-					<label for="last_name"> Last Name </label>
-					<input type="text" name="last_name" id="first_name" />
-				</div>
+					<label for="last_name"> Last Name: </label>
+					<input type="text" name="last_name" class="form-control" id="first_name" />
+				</div><br/>
 				<div class="submit">
 					<input name="action" type="hidden" value="register">
-					<input type="submit" value="Register"/>
+					<input type="submit" class="btn btn-submit" value="Register"/>
 				</div>
 			</form>
 		</div>
@@ -85,6 +86,6 @@
 
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
-		</footer>	
+		</footer>
 	</body>
 </html>
