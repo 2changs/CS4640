@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 //import mail service libraries
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -37,11 +36,11 @@ public class contact extends HttpServlet
  // please go to the gmail account >> sign-in and security >> turn on the "less security" option 
  // (https://myaccount.google.com/lesssecureapps). 
 	
- private String username = "commanderamander11";   // ask me for username and password used for this example
- private String password = "oneshot1";
+ private String username = "AmandaDianawebpl";   // ask me for username and password used for this example
+ private String password = "webplisfun";
 			
  private String from_email = "manda.nguyen@gmail.com";
- private String to_email = "commanderamander11@gmail.com";
+ private String to_email = "amandadianawebpl@gmail.com";
 	   
  private String str_cofm = "";
 	
@@ -50,21 +49,21 @@ public class contact extends HttpServlet
     res.setContentType ("text/html");
     PrintWriter out = res.getWriter ();  
     
-    String your_email = req.getParameter("contact-email");
-    String email_subj = "hello";
-    		//req.getParameter("email_subject");
-    String email_msg = req.getParameter("contact-message");
+    String your_email = req.getParameter("email_address");
+    String email_subj = req.getParameter("email_subject");
+    String email_msg = req.getParameter("email_msg");
+    String nameofsender = req.getParameter("name");
                            
     out.println("<html>");
-    out.println("<head>\n <title>CS 4640: Sending mail exercise</title>\n</head>");
+    out.println("<head>\n <title>Appetize</title>\n</head>");
     out.println("<body>");
-    out.println("  <h1>CS 4640: Sending mail exercise</title></h1>");
+    out.println("  <h1>"+"Hi "+ nameofsender+", " + "your message has been sent.</title></h1>");
     
     send_email(your_email, email_subj, email_msg);
-    out.println(str_cofm);    // print confirmation 
+    //out.println(str_cofm);    // print confirmation 
     
-    out.print ("</body>\n");
-    out.print ("</html>\n");
+    //out.print ("</body>\n");
+    //out.print ("</html>\n");
 
     out.close ();	      
  }
@@ -78,86 +77,117 @@ public class contact extends HttpServlet
     // always a good idea to include title --> telling where we are (in addition to what shows in the body)
     // and also increase usability when the url to this web component is bookmarked
     
-//    out.println("<html>\n<head>\n <title>CS 4640: Sending mail exercise</title>\n</head>");      
-//    out.println("<body>");
-//    out.println("<center><h1>CS 4640: Sending mail exercise</h1></center>");
-//    out.println("<form action=\"http://localhost:8080/example/Assignment5\" method=\"post\">");
-//    out.println("<center>");
-//    out.println("  <table>");
-//    out.println("    <tr>");
-//    out.println("      <td>");
-//    out.println("        Email address ");
-//    out.println("      </td>");
-//    out.println("      <td>");          
-//    out.println("        <input type=\"text\" name=\"your_email\" size=30>");
-//    out.println("      </td>");
-//    out.println("    </tr>");
-//    out.println("    <tr>");
-//    out.println("      <td>");
-//    out.println("        Subject ");
-//    out.println("      </td>");
-//    out.println("      <td>");     
-//    out.println("        <input type=\"text\" name=\"email_subject\" size=30>");
-//    out.println("      </td>");
-//    out.println("    </tr>");
-//    out.println("    <tr>");
-//    out.println("      <td>");
-//    out.println("        Message ");
-//    out.println("      </td>");
-//    out.println("      <td>");     
-//    out.println("        <input type=\"text\" name=\"email_msg\" size=30>");
-//    out.println("      </td>");
-//    out.println("    </tr>");
-//    out.println("    <tr>");      
-//    out.println("      <td align=\"center\" colspan=2>");     
-//    out.println("        <input type=\"submit\" value=\"Send Email\">");
-//    out.println("      </td>");
-//    out.println("    </tr>");
-//    out.println("  </table>");
-//    out.println("</center>");
-//    out.println("</form>");   
-//   
-//    out.println("</body>");
-//    out.println("</html>");
     
-    out.println("<html>");
+    
+    out.println("<html>"); 
+    out.println("<title>Appetize</title>");
     out.println("<head>");
-    out.println("<meta charset=\"UTF-8\">");
-    	out.println("<title>Appetize</title>");
-    	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/style.css\">");
-    	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/contact.css\">");
+    out.println("<title>Appetize</title>");
+	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/style.css\">");
+	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/contact.css\">");
 
-    	out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
-    	out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
-    	out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
-    	out.println("<script src=\"./js/index.js\"></script>");
-    	out.println("</head>");
-    	out.println("<body>");
+	out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
+	out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
+	out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
+	out.println("<script src=\"./js/index.js\"></script>");
+	out.println("</head>");
+	
+    out.println("<body>");
+    out.println("<center><h1>Contact Us - Appetize</h1></center>");
+    out.println("<form action=\"http://localhost:8080/example/Assignment5\" method=\"post\">");
+    out.println("<center>");
+    out.println("  <table>");
+    out.println("    <tr>");
+    out.println("      <td>");
+    out.println("        Name: ");
+    out.println("      </td>");
+    out.println("      <td>");          
+    out.println("        <input type=\"text\" name=\"name\" size=30 placeholder=\"Name\" >");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("    <tr>");
+    out.println("      <td>");
+    out.println("        Email: ");
+    out.println("      </td>");
+    out.println("      <td>");          
+    out.println("        <input type=\"text\" name=\"email_address\" size=30 placeholder=\"Email\">");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("    <tr>");
+    out.println("      <td>");
+    out.println("        Phone: ");
+    out.println("      </td>");
+    out.println("      <td>");          
+    out.println("        <input type=\"text\" name=\"phone\" size=30 placeholder=\"Phone\">");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("    <tr>");
+    out.println("      <td>");
+    out.println("        Subject: ");
+    out.println("      </td>");
+    out.println("      <td>");     
+    out.println("        <input type=\"text\" name=\"email_subject\" size=30 placeholder=\"Subject\">");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("    <tr>");
+    out.println("      <td>");
+    out.println("        Message: ");
+    out.println("      </td>");
+    out.println("      <td>");     
+    //out.println("        <input type=\"text\" name=\"email_msg\" size=30 placeholder=\"Enter message here\">");
+    out.println("		<textarea name=\"email_msg\" rows=\"5\" cols=34 placeholder=\"Enter message here\"></textarea>");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("    <tr>");      
+    out.println("      <td align=\"center\" colspan=2>");     
+    out.println("        <input type=\"submit\" value=\"Send Email\">");
+    out.println("      </td>");
+    out.println("    </tr>");
+    out.println("  </table>");
+    out.println("</center>");
+    out.println("</form>");   
+   
+    out.println("</body>");
+    out.println("</html>");
     
-    	out.println("<div class=\"form\">");
-    	out.println("<form name=\"form-contact\" action = \"http://localhost:8080/example/Assignment5\" method=\"post\">");
-    	out.println("<label for=\"contact-name\"> Name: </label>");
-    	out.println("<input name=\"name\" class=\"form-control\" type = \"text\" id = \"contact-name\" placeholder=\"Name\" />");
-    	out.println("<span class=\"error\" id=\"error-name\"> </span> </br>");
-
-    	out.println("<label for=\"email\"> Email: </label>");
-    	out.println("<input name=\"email\" class=\"form-control\" type = \"email\" id = \"contact-email\" placeholder=\"Email\"/>");
-    	out.println("<span class=\"error\" id=\"error-email\"> </span> </br>");
-
-    	out.println("<label for=\"phone\"> Phone: </label>");
-    	out.println("<input name=\"phone\" class=\"form-control\" type = \"text\" id = \"contact-phone\" placeholder=\"Phone\"/>");
-    	out.println("<span class=\"error\" id=\"error-phone\"> </span> </br>");
-
-    	out.println("<label for=\"message\"> Message: </label>");
-    	out.println("<textarea name=\"message\" class=\"form-control\" rows=\"5\" id=\"contact-message\" placeholder=\"Please enter your message here\"></textarea>");
-    	out.println("<span class=\"error\" id=\"error-message\"> </span>");
-    	out.println("<br/>");
-    	out.println("<input type =\"button\" id =\"contact-submitbutton\" value=\"Submit\" class=\"btn btn-submit\"/>");
-    	out.println("</form>");
-	out.println("</div>");
-	out.println("</body>");
-	out.println("</html>");
+//    out.println("<html>");
+//    out.println("<head>");
+//    out.println("<meta charset=\"UTF-8\">");
+//    	out.println("<title>Appetize</title>");
+//    	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/style.css\">");
+//    	out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/contact.css\">");
+//
+//    	out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
+//    	out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
+//    	out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
+//    	out.println("<script src=\"./js/index.js\"></script>");
+//    	out.println("</head>");
+//    	out.println("<body>");
 //    
+//    	out.println("<div class=\"form\">");
+//    	out.println("<form name=\"form-contact\" action = \"http://localhost:8080/example/Assignment5\" method=\"post\">");
+//    	out.println("<label for=\"contact-name\"> Name: </label>");
+//    	out.println("<input name=\"name\" class=\"form-control\" type = \"text\" id = \"contact-name\" placeholder=\"Name\" />");
+//    	out.println("<span class=\"error\" id=\"error-name\"> </span> </br>");
+//
+//    	out.println("<label for=\"email\"> Email: </label>");
+//    	out.println("<input name=\"your_email\" class=\"form-control\" type = \"email\" id = \"contact-email\" placeholder=\"Email\"/>");
+//    	out.println("<span class=\"error\" id=\"error-email\"> </span> </br>");
+//
+//    	out.println("<label for=\"phone\"> Phone: </label>");
+//    	out.println("<input name=\"phone\" class=\"form-control\" type = \"text\" id = \"contact-phone\" placeholder=\"Phone\"/>");
+//    	out.println("<span class=\"error\" id=\"error-phone\"> </span> </br>");
+//
+//    	out.println("<label for=\"message\"> Message: </label>");
+//    	out.println("<textarea name=\"email_msg\" class=\"form-control\" rows=\"5\" id=\"contact-message\" placeholder=\"Please enter your message here\"></textarea>");
+//    	out.println("<span class=\"error\" id=\"error-message\"> </span>");
+//    	out.println("<br/>");
+//    	out.println("<input type =\"button\" id =\"contact-submitbutton\" value=\"Submit\" class=\"btn btn-submit\"/> ");
+//    	out.println("</form>");
+//	out.println("</div>");
+//	out.println("</body>");
+//	out.println("</html>");
+
     out.close();
  }
  
