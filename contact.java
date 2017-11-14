@@ -27,59 +27,62 @@ import java.io.*;
 import java.util.Properties;
 
 @WebServlet("/Assignment5")
-public class contact extends HttpServlet 
+public class contact extends HttpServlet
 {
  // This is a bogus email created for this example
-	
- // By default Gmail account is highly secured. When we use gmail smtp from non gmail tool, email is blocked. 
+
+ // By default Gmail account is highly secured. When we use gmail smtp from non gmail tool, email is blocked.
  // To allow any program (e.g., this servlet) to login and send email from a gmail account,
- // please go to the gmail account >> sign-in and security >> turn on the "less security" option 
- // (https://myaccount.google.com/lesssecureapps). 
-	
+ // please go to the gmail account >> sign-in and security >> turn on the "less security" option
+ // (https://myaccount.google.com/lesssecureapps).
+
  private String username = "AmandaDianawebpl";   // ask me for username and password used for this example
  private String password = "webplisfun";
-			
+
  private String from_email = "manda.nguyen@gmail.com";
  private String to_email = "amandadianawebpl@gmail.com";
-	   
+
  private String str_cofm = "";
-	
- protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException 
+
+ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
  {
     res.setContentType ("text/html");
-    PrintWriter out = res.getWriter ();  
-    
+    PrintWriter out = res.getWriter ();
+
     String your_email = req.getParameter("email_address");
     String email_subj = req.getParameter("email_subject");
     String email_msg = req.getParameter("email_msg");
     String nameofsender = req.getParameter("name");
-                           
+
     out.println("<html>");
     out.println("<head>\n <title>Appetize</title>\n</head>");
     out.println("<body>");
     out.println("  <h1>"+"Hi "+ nameofsender+", " + "your message has been sent.</title></h1>");
-    
+
     send_email(your_email, email_subj, email_msg);
-    //out.println(str_cofm);    // print confirmation 
-    
+    //out.println(str_cofm);    // print confirmation
+
     //out.print ("</body>\n");
     //out.print ("</html>\n");
 
-    out.close ();	      
+    out.close ();
  }
- 
- protected void doGet(HttpServletRequest req, HttpServletResponse res) 
-		     throws ServletException, IOException 
- {	    	   
-    res.setContentType ("text/html");
-    PrintWriter out = res.getWriter();
 
+ protected void doGet(HttpServletRequest req, HttpServletResponse res)
+		     throws ServletException, IOException
+ {
+
+	 HttpSession session = request.getSession(true);
+	 Date time = new Date(session.getCreationTime());
+
+
+    res.setContentType ("text/html");
     // always a good idea to include title --> telling where we are (in addition to what shows in the body)
     // and also increase usability when the url to this web component is bookmarked
-    
-    
-    
-    out.println("<html>"); 
+
+
+
+    out.println("<html>");
     out.println("<title>Appetize</title>");
     out.println("<head>");
     out.println("<title>Appetize</title>");
@@ -91,7 +94,7 @@ public class contact extends HttpServlet
 	out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
 	out.println("<script src=\"./js/index.js\"></script>");
 	out.println("</head>");
-	
+
     out.println("<body>");
     out.println("<center><h1>Contact Us - Appetize</h1></center>");
     out.println("<form action=\"http://localhost:8080/example/Assignment5\" method=\"post\">");
@@ -101,7 +104,7 @@ public class contact extends HttpServlet
     out.println("      <td>");
     out.println("        Name: ");
     out.println("      </td>");
-    out.println("      <td>");          
+    out.println("      <td>");
     out.println("        <input type=\"text\" name=\"name\" size=30 placeholder=\"Name\" >");
     out.println("      </td>");
     out.println("    </tr>");
@@ -109,7 +112,7 @@ public class contact extends HttpServlet
     out.println("      <td>");
     out.println("        Email: ");
     out.println("      </td>");
-    out.println("      <td>");          
+    out.println("      <td>");
     out.println("        <input type=\"text\" name=\"email_address\" size=30 placeholder=\"Email\">");
     out.println("      </td>");
     out.println("    </tr>");
@@ -117,7 +120,7 @@ public class contact extends HttpServlet
     out.println("      <td>");
     out.println("        Phone: ");
     out.println("      </td>");
-    out.println("      <td>");          
+    out.println("      <td>");
     out.println("        <input type=\"text\" name=\"phone\" size=30 placeholder=\"Phone\">");
     out.println("      </td>");
     out.println("    </tr>");
@@ -125,7 +128,7 @@ public class contact extends HttpServlet
     out.println("      <td>");
     out.println("        Subject: ");
     out.println("      </td>");
-    out.println("      <td>");     
+    out.println("      <td>");
     out.println("        <input type=\"text\" name=\"email_subject\" size=30 placeholder=\"Subject\">");
     out.println("      </td>");
     out.println("    </tr>");
@@ -133,23 +136,23 @@ public class contact extends HttpServlet
     out.println("      <td>");
     out.println("        Message: ");
     out.println("      </td>");
-    out.println("      <td>");     
+    out.println("      <td>");
     //out.println("        <input type=\"text\" name=\"email_msg\" size=30 placeholder=\"Enter message here\">");
     out.println("		<textarea name=\"email_msg\" rows=\"5\" cols=34 placeholder=\"Enter message here\"></textarea>");
     out.println("      </td>");
     out.println("    </tr>");
-    out.println("    <tr>");      
-    out.println("      <td align=\"center\" colspan=2>");     
+    out.println("    <tr>");
+    out.println("      <td align=\"center\" colspan=2>");
     out.println("        <input type=\"submit\" value=\"Send Email\">");
     out.println("      </td>");
     out.println("    </tr>");
     out.println("  </table>");
     out.println("</center>");
-    out.println("</form>");   
-   
+    out.println("</form>");
+
     out.println("</body>");
     out.println("</html>");
-    
+
 //    out.println("<html>");
 //    out.println("<head>");
 //    out.println("<meta charset=\"UTF-8\">");
@@ -163,7 +166,7 @@ public class contact extends HttpServlet
 //    	out.println("<script src=\"./js/index.js\"></script>");
 //    	out.println("</head>");
 //    	out.println("<body>");
-//    
+//
 //    	out.println("<div class=\"form\">");
 //    	out.println("<form name=\"form-contact\" action = \"http://localhost:8080/example/Assignment5\" method=\"post\">");
 //    	out.println("<label for=\"contact-name\"> Name: </label>");
@@ -190,20 +193,20 @@ public class contact extends HttpServlet
 
     out.close();
  }
- 
- 
+
+
  private void send_email(String email_address, String email_subject, String email_message)
  {
     Properties props = new Properties();
-    
+
     // Specifies the IP address of your default mail server
 	  // for example, if you are using gmail server as an email sever
-    // you will pass smtp.gmail.com as value of mail.smtp host. 
+    // you will pass smtp.gmail.com as value of mail.smtp host.
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.starttls.enable", "true");
     props.put("mail.smtp.host", "smtp.gmail.com");
-    props.put("mail.smtp.port", "587");      
-    
+    props.put("mail.smtp.port", "587");
+
    // pass properties object and authenticator object
    // for authentication to Session instance
 
@@ -211,33 +214,32 @@ public class contact extends HttpServlet
           protected PasswordAuthentication getPasswordAuthentication() {
              return new PasswordAuthentication(username, password);
        }
-    }); 
-                
+    });
+
     if (email_address.length() > 0 && email_message.length() > 0)
     {
-       try 
+       try
        {
           Message message = new MimeMessage(session);
           message.setFrom(new InternetAddress(from_email));     // from which email address
           message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to_email));  // send to which email address
           message.addRecipient(Message.RecipientType.TO, new InternetAddress(email_address));  // add more recipients
-          message.setSubject(email_subject);         // set a subject of an email 
-          message.setContent(email_message, "text/html; charset=utf-8");   // set a message of an email 
-          
-          Transport.send(message);                              
-             
-          // always provide feedback, so that the users know what happens, what to do next 
-          
+          message.setSubject(email_subject);         // set a subject of an email
+          message.setContent(email_message, "text/html; charset=utf-8");   // set a message of an email
+
+          Transport.send(message);
+
+          // always provide feedback, so that the users know what happens, what to do next
+
           str_cofm = "Email notification was sent";    // nothing wrong, confirm to the user so that the user knows the status
-          
+
        } catch (MessagingException e) {
-      	// if something's wrong, let the user knows  
-          str_cofm = "There is a problem while sending an email. " + 
-                     "Please check your code and try sending an email again."; 
+      	// if something's wrong, let the user knows
+          str_cofm = "There is a problem while sending an email. " +
+                     "Please check your code and try sending an email again.";
           throw new RuntimeException(e);
        }
-     }    
-                
- }   
-}
+     }
 
+ }
+}
