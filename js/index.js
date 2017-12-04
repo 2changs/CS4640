@@ -25,10 +25,18 @@ function goBack() {
 
 function addIngredient() {
     var text = document.getElementById("ingredient").value;
-    if(text != "" | text != null) { 
-        var node = document.createElement("LI"); 
+    if(text != "" | text != null) {
+        var node = document.createElement("LI");
         var textnode = document.createTextNode(text);
         node.appendChild(textnode);
         document.getElementById("ingredient-list").appendChild(node);
+
+        var hiddenDiv = document.getElementById("hidden-ingredients");
+        if(hiddenDiv.value != "") {
+          hiddenDiv.value = hiddenDiv.value + ", " + text;
+        } else {
+          hiddenDiv.value = text;
+        }
+
     }
 }

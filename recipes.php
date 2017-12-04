@@ -50,7 +50,7 @@
 				    while($row = $result->fetch_assoc()) {
 
 				        $cell = '<div class="col-sm-4">';
-						$cell.= '<a class="recipe-tile" href="recipe.html">
+						$cell.= '<a class="recipe-tile" href="recipe.html?id='.$row["id"].'">
 							<div class="tile" style="background:url(';
 						$cell.=	"'".$row["recipe_image"]."'";
 						$cell.= ') no-repeat center">

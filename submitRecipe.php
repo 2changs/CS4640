@@ -66,16 +66,17 @@
 						<ul id='ingredient-list'>
 						</ul>
 					</div>
+					<textarea name="hidden-ingredients" id="hidden-ingredients" style="display:hidden;"></textarea>
 				</div>
 
-				<label for="message"> Directions: </label>
-				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
-				<span class="error" id="error-message"> </span> 
+				<label for="directions"> Directions: </label>
+				<textarea name="directions" class="form-control" rows="5" id="directions" placeholder="Please enter your message here"></textarea>
+				<span class="error" id="error-message"> </span>
 				<br/>
 
 				<label for="recipe-image"> Image: </label>
 				<input name="recipe-image" class="form-control" type = "text" id="recipe-image"/>
-				<span class="error" id="error-message"> </span> 
+				<span class="error" id="error-message"> </span>
 
 				<input name="action" type="hidden" value="submitRecipe">
 				<input type="submit" value="Submit" class="btn btn-submit" onclick="validate()"/>
@@ -91,9 +92,12 @@
 	  				$recipe_form_cost = mysqli_real_escape_string($connection, $_GET['recipe-form-cost']);
 	  				$recipe_form_difficulty = mysqli_real_escape_string($connection, $_GET['recipe-form-difficulty']);
 	  				$recipe_image = mysqli_real_escape_string($connection, $_GET['recipe-image']);
+						$recipe_directions = mysqli_real_escape_string($connection, $_GET['directions']);
+						$recipe_ingredients = mysqli_real_escape_string($connection, $_GET['hidden-ingredients']);
 
-	  				echo($recipe_form_difficulty);
-	  				$query = "insert into recipes(recipe_name, recipe_hours, recipe_minutes, recipe_cost, recipe_difficulty, recipe_image) values ('".$recipe_name."',".$recipe_form_hours.",".$recipe_form_minutes.",".$recipe_form_cost.",".$recipe_form_difficulty.",'".$recipe_image."')";
+
+						echo($recipe_ingredients);
+	  				$query = "insert into recipes(recipe_name, recipe_hours, recipe_minutes, recipe_cost, recipe_difficulty, recipe_image, prep, ingredients) values ('".$recipe_name."',".$recipe_form_hours.",".$recipe_form_minutes.",".$recipe_form_cost.",".$recipe_form_difficulty.",'".$recipe_image."','".$recipe_directions."','".$recipe_ingredients."')";
 	  				mysqli_query($connection, $query);
 	  			}
 
@@ -104,6 +108,6 @@
 	  	</div>
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
-		</footer>	
+		</footer>
 	</body>
 </html>
