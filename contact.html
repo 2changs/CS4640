@@ -39,7 +39,7 @@
 					<p class="person-name"> Diana Chang </p>
 				</div>
 				<div class="person-desc">
-					Hi, I'm Diana! I'm a 3rd year BSCS student and I love Web PL!!!!! 
+					Hi, I'm Diana! I'm a 3rd year BSCS student and I love Web PL!!!!!
 				</div>
 			</div>
 			<div id="amanda" class="person">
@@ -47,35 +47,57 @@
 					<img class="person-img" src="./images/amanda.jpg" alt="" />
 					<p class="person-name">Amanda Nguyen</p>
 				</div>
-				<div class="person-desc"> 
+				<div class="person-desc">
 					Hi everyone! My name is Amanda Nguyen and I'm a student at the University of Virginia majoring in Computer Science. In my free time I like to play volleyball with my friends and eat my way around Charlottesville!
 				</div>
 			</div>
 		</div>
+<!-- <div class="form">
+	<form name="form-contact" action=\"http://localhost:8080/appetize/contact\" method=\"POST\">
+			<label for="contact-name"> Name: </label>
+		<input name="name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+		<span class="error" id="error-name"> </span> </br>
 
-		<div class="form">
-			<form name="form-contact">
-		    	<label for="contact-name"> Name: </label>
-				<input name="name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
-				<span class="error" id="error-name"> </span> </br>
+		<label for="email"> Email: </label>
+			<input name="email" class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
+		<span class="error" id="error-email"> </span> </br>
 
-				<label for="email"> Email: </label>
-		    	<input name="email" class="form-control" type = "email" id = "contact-email" placeholder="Email"/>
-				<span class="error" id="error-email"> </span> </br>
+		<label for="phone"> Phone: </label>
+			<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
+		<span class="error" id="error-phone"> </span> </br>
 
-				<label for="phone"> Phone: </label>
-		    	<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
-				<span class="error" id="error-phone"> </span> </br>
+		<label for="message"> Message: </label>
+		<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
+		<span class="error" id="error-message"> </span>
+		<br/>
+		<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" />
+		</form>
+	</div> -->
 
-				<label for="message"> Message: </label>
-				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
-				<span class="error" id="error-message"> </span> 
-				<br/>
-				<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick="validate()"/>
-	  		</form>
-	  	</div>
+	<div class="form">
+		<form name="form-contact" action="http://localhost:8080/appetize/contact" method="post">
+			<label for="contact-name"> Name: </label>
+			<input type="text" name="name" class="form-control" size=30 placeholder="Name">
+			<span class="error" id="error-name"> </span> </br>
+
+			<label for="email"> Email: </label>
+			<input type="text" name="email" class="form-control" size=30 placeholder="Email">
+			<span class="error" id="error-email"> </span> </br>
+
+			<label for="phone"> Phone: </label>
+			<input type="text" class="form-control" name="phone" size=30 placeholder="Phone">
+			<span class="error" id="error-phone"> </span> </br>
+
+			<label for="message"> Message: </label>
+			<textarea name="message" class="form-control" rows="5" placeholder="Please enter your message here"></textarea>
+			<span class="error" id="error-message"> </span>
+			<br/>
+			<input type ="submit" value="Submit" class="btn btn-submit" onclick=validate()>
+			</form>
+		</div>
+
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
-		</footer>	  	
+		</footer>
 	</body>
 </html>
