@@ -44,6 +44,10 @@
 				<div class="recipe-img">
 					<img src="{{ recipe.recipe_image }}" />
 				</div>
+				<div>
+					<button ng-click="count = count + 1" ng-init="count=0">Like</button>
+					<p>This recipe has been liked {{count}} times.</p>
+				</div>
 			</section>
 			<section class="recipe-right">
 				<h3 class="recipe-info"> Time: {{ recipe.recipe_hours }} hours {{ recipe.recipe_minutes }} min | ~${{ recipe.recipe_cost }} </h3>
