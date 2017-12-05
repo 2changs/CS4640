@@ -66,6 +66,7 @@
 			<input name="phone" class="form-control" type = "text" id = "contact-phone" placeholder="Phone" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"/>
 		<span class="error" id="error-phone"> </span> </br>
 
+<<<<<<< HEAD
 		<label for="message"> Message: </label>
 		<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
 		<span class="error" id="error-message"> </span>
@@ -73,6 +74,13 @@
 		<input type ="button" id ="contact-submitbutton" value="Submit" class="btn btn-submit" />
 		</form>
 	</div> -->
+=======
+		<div class="form">
+			<form name="form-contact" method="post" action="loginServlet">
+		    	<label for="contact-name"> Name: </label>
+				<input name="name" class="form-control" type = "text" id = "contact-name" placeholder="Name" />
+				<span class="error" id="error-name"> </span> </br>
+>>>>>>> 2b61fb79f5526dd780c5e9b1fa786713c9165b5b
 
 	<div class="form">
 		<form name="form-contact" action="http://localhost:8080/appetize/contact" method="post">
@@ -96,6 +104,16 @@
 			</form>
 		</div>
 
+<<<<<<< HEAD
+=======
+				<label for="message"> Message: </label>
+				<textarea name="message" class="form-control" rows="5" id="contact-message" placeholder="Please enter your message here"></textarea>
+				<span class="error" id="error-message"> </span> 
+				<br/>
+				<input type ="submit" id ="contact-submitbutton" value="Submit" class="btn btn-submit" onclick="validate()"/>
+	  		</form>
+	  	</div>
+>>>>>>> 2b61fb79f5526dd780c5e9b1fa786713c9165b5b
 		<footer>
 			CS4753 | Diana Chang | Amanda Nguyen
 		</footer>
