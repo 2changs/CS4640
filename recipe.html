@@ -47,6 +47,24 @@
 				<div>
 					<button ng-click="count = count + 1" ng-init="count=0">Like</button>
 					<p>This recipe has been liked {{count}} times.</p>
+					<button id="suggestion-button">Should I make this recipe?</button> </br>
+					<img id="image-here"> </span>
+					<script>
+					var btn = document.getElementById('suggestion-button');
+					var image = document.getElementById('image-here');
+					var request = new XMLHttpRequest();
+
+					request.onreadystatechange = function() {
+						if(request.readyState == 4 && request.status == 200){
+							image.src = request.responseText;
+							image.style.display="";
+						}
+					}
+					request.open('Get', './yes.txt');
+					btn.addEventListener('click', function() {
+					  request.send();
+					});
+					</script>
 				</div>
 			</section>
 			<section class="recipe-right">
